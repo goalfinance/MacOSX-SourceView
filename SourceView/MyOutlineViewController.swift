@@ -43,7 +43,7 @@ class MyOutlineViewController:NSViewController{
     var webViewController:WebViewController?
     var childEditWindowController:NSWindowController?
     
-    var contents = NSMutableArray()
+    @objc var contents = NSMutableArray()
     var draggedNodes:[Any]?
     
     override func viewDidLoad() {
@@ -121,23 +121,25 @@ class MyOutlineViewController:NSViewController{
         for entry in entries{
             if entry is NSDictionary{
                 let e = entry as! NSDictionary
-                let urlString = e.value(forKey: KEY_URL)
-                let url = URL.init(string: urlString as! String)
-                if (e.value(forKey: KEY_SEPARATOR) != nil){
-                    self.addChild(url: nil, withName: nil, selectItsParent: true)
-                }else if (e.value(forKey: KEY_FOLDER) != nil){
-                    let folderName = e.value(forKey: KEY_FOLDER)
-                    self.addChild(url: url, withName: folderName as? String, selectItsParent: true)
-                }else if (e.value(forKey: KEY_URL) != nil){
-                    let folderName = e.value(forKey: KEY_FOLDER)
-                    self.addChild(url: url, withName: folderName as? String, selectItsParent: true)
-                }else{
-                    let folderName = e.value(forKey: KEY_GROUP)
-                    self.addFolder(withName: folderName as! String)
-                    let childEntries = e.value(forKey: KEY_ENTRIES) as! NSArray
-                    self.addEntries(entries: childEntries, discloseParent: false)
-                    self.selectParentFromSelection()
+                if let urlString = e.value(forKey: KEY_URL){
+                    let url = URL.init(string: urlString as! String)
+                    if (e.value(forKey: KEY_SEPARATOR) != nil){
+                        self.addChild(url: nil, withName: nil, selectItsParent: true)
+                    }else if (e.value(forKey: KEY_FOLDER) != nil){
+                        let folderName = e.value(forKey: KEY_FOLDER)
+                        self.addChild(url: url, withName: folderName as? String, selectItsParent: true)
+                    }else if (e.value(forKey: KEY_URL) != nil){
+                        let folderName = e.value(forKey: KEY_FOLDER)
+                        self.addChild(url: url, withName: folderName as? String, selectItsParent: true)
+                    }else{
+                        let folderName = e.value(forKey: KEY_GROUP)
+                        self.addFolder(withName: folderName as! String)
+                        let childEntries = e.value(forKey: KEY_ENTRIES) as! NSArray
+                        self.addEntries(entries: childEntries, discloseParent: false)
+                        self.selectParentFromSelection()
+                    }
                 }
+                
             }
         }
         if !discloseParent{

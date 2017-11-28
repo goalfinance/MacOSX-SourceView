@@ -1000,15 +1000,15 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <customView identifier="Separator" id="gH8-b1-wIS" userLabel="Separator View" customClass="SeparatorView" customModule="SourceView" customModuleProvider="target">
-                                                            <rect key="frame" x="1" y="1" width="319" height="2"/>
+                                                            <rect key="frame" x="1" y="1" width="318" height="2"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         </customView>
                                                         <tableCellView id="XCj-NV-ijd">
-                                                            <rect key="frame" x="1" y="5" width="319" height="17"/>
+                                                            <rect key="frame" x="1" y="5" width="318" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="MRy-If-hM1" userLabel="Title">
-                                                                    <rect key="frame" x="23" y="-3" width="295" height="17"/>
+                                                                    <rect key="frame" x="23" y="-3" width="294" height="17"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="q65-un-c6S">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -1047,18 +1047,19 @@
                                         </outlineView>
                                     </subviews>
                                 </clipView>
-                                <scroller key="horizontalScroller" verticalHuggingPriority="750" doubleValue="0.66666666666666663" horizontal="YES" id="nn3-8U-YtH">
+                                <scroller key="horizontalScroller" verticalHuggingPriority="750" doubleValue="0.22222222222222221" horizontal="YES" id="nn3-8U-YtH">
                                     <rect key="frame" x="1" y="410" width="317" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="5w5-vr-8u2">
-                                    <rect key="frame" x="224" y="17" width="15" height="102"/>
+                                    <rect key="frame" x="-15" y="1" width="16" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="myOutlineView" destination="aD6-4q-SCk" id="igu-2m-7AA"/>
                         <outlet property="treeController" destination="OOU-7l-5Iu" id="GGC-Kq-1bS"/>
                     </connections>
                 </viewController>
